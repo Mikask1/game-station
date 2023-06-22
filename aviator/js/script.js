@@ -1,10 +1,10 @@
-import * as THREE from 'three';
-import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+// import * as THREE from 'three';
+// import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
+// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // const controls = new OrbitControls( camera, renderer.domElement );
-const loader = new GLTFLoader();
+// const loader = new GLTFLoader();
 var WIDTH=window.innerWidth;
 var HEIGHT=window.innerHeight;
 var scene, fov, aspectRatio, near, far, renderer, container, camera, controls;
@@ -51,7 +51,6 @@ var Sea = function(){
     console.log(geom);
 	// rotate the geometry on the x axis
 	geom=geom.applyMatrix4(new THREE.Matrix4().makeRotationX(-Math.PI/2));
-    geom=BufferGeometryUtils.mergeVertices(geom);
     console.log(geom);
 
     var position = geom.getAttribute('position');
@@ -260,6 +259,7 @@ var Plane = function(){
     });
 
     // make back part smaller
+    console.log(geomCockpit);
     var position = geomCockpit.getAttribute('position');
     position.setUsage(THREE.DynamicDrawUsage);
     var vertex = new THREE.Vector3();
